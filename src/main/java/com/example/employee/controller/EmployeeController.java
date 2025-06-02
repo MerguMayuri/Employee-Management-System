@@ -10,6 +10,8 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import java.util.Map;
 import java.util.HashMap;
+// Added below custom exception
+import com.example.employee.exception.ResourceNotFoundException;
 
 
 @RestController
