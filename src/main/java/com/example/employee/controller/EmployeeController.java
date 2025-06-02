@@ -6,6 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+// Added below imports as @DeleteMapping needed those imports to execute.
+import org.springframework.http.ResponseEntity;
+import java.util.Map;
+import java.util.HashMap;
+
 
 @RestController
 @RequestMapping("/api/employees")
