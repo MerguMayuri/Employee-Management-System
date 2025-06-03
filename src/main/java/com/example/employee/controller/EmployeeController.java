@@ -12,7 +12,8 @@ import java.util.Map;
 import java.util.HashMap;
 // Added below custom exception
 import com.example.employee.exception.ResourceNotFoundException;
-
+// Added new import stmt required to delete all records.
+import org.springframework.web.bind.annotation.DeleteMapping; 
 
 @RestController
 @RequestMapping("/api/employees")
@@ -40,5 +41,11 @@ public class EmployeeController {
         response.put("deleted", Boolean.TRUE);
         return ResponseEntity.ok(response);
     }
+    //Added new method to delete all records
+    @DeleteMapping("/employees")
+        public ResponseEntity<Void> deleteAllEmployees() {
+        employeeRepository.deleteAll();
+        return ResponseEntity.noContent().build();
+}
 
 }
