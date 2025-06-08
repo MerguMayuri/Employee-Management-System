@@ -7,6 +7,11 @@ services:
       - "8080:8080"
     depends_on:
       - prometheus
+      - db # added db credentials
+    environment:
+      - SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/employee_db
+      - SPRING_DATASOURCE_USERNAME: user
+      - SPRING_DATASOURCE_PASSWORD: password
 
   prometheus:
     image: prom/prometheus
@@ -24,5 +29,19 @@ services:
     volumes: # added volume to grafana
       - grafana-storage:/var/lib/grafana
 
+# added below db details
+  db:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: employee_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - db_data:/var/lib/mysql 
+
 volumes:
   grafana-storage:
+  db_data:

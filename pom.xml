@@ -45,6 +45,13 @@
             <artifactId>micrometer-registry-prometheus</artifactId>
         </dependency>
 
+         <!-- Added MySQL dependency-->   
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
