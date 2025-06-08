@@ -10,8 +10,8 @@ services:
       - db # added db credentials
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/employee_db # Removed '-' from the starting of the line as Each item in a list must be a string, not a key-value map.
-      SPRING_DATASOURCE_USERNAME: user # Removed '-' from the starting of the line as Each item in a list must be a string, not a key-value map.
-      SPRING_DATASOURCE_PASSWORD: password # Removed '-' from the starting of the line as Each item in a list must be a string, not a key-value map.
+      SPRING_DATASOURCE_USERNAME: root # Removed '-' from the starting of the line as Each item in a list must be a string, not a key-value map.
+      SPRING_DATASOURCE_PASSWORD: root # Removed '-' from the starting of the line as Each item in a list must be a string, not a key-value map.
 
   prometheus:
     image: prom/prometheus
@@ -37,10 +37,14 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: employee_db
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+      MYSQL_PASSWORD: root
     volumes:
       - db_data:/var/lib/mysql 
+    healthcheck: # added healthcheck for MySQL sb
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 volumes:
   grafana-storage:
