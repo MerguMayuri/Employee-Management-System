@@ -9,9 +9,9 @@ services:
       - prometheus
       - db # added db credentials
     environment:
-      - SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/employee_db
-      - SPRING_DATASOURCE_USERNAME: user
-      - SPRING_DATASOURCE_PASSWORD: password
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/employee_db # Removed '-' from the starting of the line as Each item in a list must be a string, not a key-value map.
+      SPRING_DATASOURCE_USERNAME: user # Removed '-' from the starting of the line as Each item in a list must be a string, not a key-value map.
+      SPRING_DATASOURCE_PASSWORD: password # Removed '-' from the starting of the line as Each item in a list must be a string, not a key-value map.
 
   prometheus:
     image: prom/prometheus
