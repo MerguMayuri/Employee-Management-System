@@ -9,10 +9,10 @@ pipeline {
     DOCKER_BUILDKIT = '1'
   }
 
-  stages {
+  stages { 
     stage('Checkout') {
       steps {
-        git 'https://github.com/MerguMayuri/Employee-Management-System.git'
+        git credentialsId: 'github-creds', url: 'https://github.com/MerguMayuri/Employee-Management-System.git
       }
     }
 
