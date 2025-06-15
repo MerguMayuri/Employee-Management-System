@@ -12,7 +12,7 @@ pipeline {
   stages { 
     stage('Checkout') {
       steps {
-        git credentialsId: 'github-creds', url: 'https://github.com/MerguMayuri/Employee-Management-System.git
+        git credentialsId: 'github-creds', url: 'https://github.com/MerguMayuri/Employee-Management-System.git'
       }
     }
 
