@@ -1,12 +1,12 @@
 pipeline {
   agent any
 
-// Removed tools block because Maven is set in Jenkins globally
-/*
+// Uncommented tools section
+
   tools {
     maven 'Maven 3.9.4'
   }
-*/
+
   environment {
     DOCKER_BUILDKIT = '1'
   }
