@@ -12,13 +12,13 @@ pipeline {
   }
 // checkout is duplicate hence commented the checkout stage
  stages { 
-  /*
+  
     stage('Checkout') {
       steps {
-        git credentialsId: 'github-creds', url: 'https://github.com/MerguMayuri/Employee-Management-System.git'
+        checkout scm
       }
     }
-  */
+  
     stage('Build') {
       steps {
         sh 'mvn clean package -DskipTests'
